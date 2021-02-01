@@ -28,21 +28,20 @@ function App() {
   return (
     <div>
       <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home">
-      <img
-        alt=""
-        src="https://www.electroshield.ru/f/i/electroshield-logo.svg"
-        
-        height="30"
-        className="d-inline-block align-top"
-      />{' '}
-      
-    </Navbar.Brand>
-  </Navbar>
+        <Navbar.Brand href="#home">
+          <img
+            alt=""
+            src="https://www.electroshield.ru/f/i/electroshield-logo.svg"
+
+            height="30"
+            className="d-inline-block align-top"
+          />{' '}
+
+        </Navbar.Brand>
+      </Navbar>
       <Container fluid>
 
         <Pagination className="consequenced">
-
           <Pagination.Item>Спецификация</Pagination.Item>
           <Pagination.Item active>SLD</Pagination.Item>
           <Pagination.Next />
@@ -61,10 +60,12 @@ function App() {
             <i className="fas fa-download padding-10"></i>
             <i className="fas fa-share-alt padding-10"></i>
           </span>
-            
-        </div>
-        <Nav variant="tabs" defaultActiveKey="/home">
 
+        </div>
+
+        
+        
+        <Nav variant="tabs" defaultActiveKey="/home">
           <Nav.Item>
             <Nav.Link href="/home">INCOMER</Nav.Link>
           </Nav.Item>
@@ -87,22 +88,25 @@ function App() {
             <Nav.Link eventKey="link-6">PFC</Nav.Link>
           </Nav.Item>
         </Nav>
-  {/* Stack the columns on mobile by making one full-width and the other half-width */}
-        <Row className="padding-10">
-          <Col xs={4} md={2}>
-            <div className="mb-2">
+        {/* Stack the columns on mobile by making one full-width and the other half-width */}
+        <div>
+          <span>
               <Button variant="light" className="add-btn" size="sm">
-              <i className="far fa-plus-square"></i> ИЗ ШАБЛОНА
+                <i className="fas fa-plus"></i>
+                <p>ИЗ ШАБЛОНА</p>
+
               </Button>{' '}
               <Button variant="light" className="add-btn" size="sm">
-              <i className="far fa-plus"></i> НОВЫЙ
+                <i className="fas fa-plus"></i>
+              <p>НОВЫЙ</p>
               </Button>
-            </div>
-          </Col>
-          <Col xs={12} md={6}>
-            xs=6 md=4
-          </Col>
-        </Row>
+          </span>
+          <span>
+            Another text
+          </span>
+        </div>
+          
+            
       </Container>
 
     </div>

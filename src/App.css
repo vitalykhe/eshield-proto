@@ -6,5 +6,21 @@
   width: 100px;
   height: 100px;
   justify-content: center;
-  
+
+}
+
+.height-300 {
+  height: max-content;
+  min-height: 300px;
+  border: gray solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+.service-caption {
+  display: block;
+}
+
+.box-1 {
+  flex: 1;
 }
