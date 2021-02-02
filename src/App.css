@@ -21,6 +21,26 @@
   display: block;
 }
 
-.box-1 {
-  flex: 1;
+.horizontalWrapper {
+  padding-top: 5px;
+  display: flex;
+  max-height: 200px;
+  border: 1px solid lightgray;
+  overflow-x: auto;
+
+}
+.horizontalWrapper .box {
+  min-width: 120px;
+  height: 180px;
+  line-height: 180px;
+  background-color: lightgray;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.feedersDropZone {
+  min-height: 200px;
+  border: 1px lightgrey solid;
+  margin: 10px;
+  padding: 10px;
 }

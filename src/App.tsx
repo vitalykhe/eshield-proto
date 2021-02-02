@@ -17,6 +17,236 @@ import {
 
 } from 'react-bootstrap'
 
+interface IFeeder {
+  id: number;
+  feederImage: string;
+  feederParams: {}
+  feederType: "INCOMER" | "ACB" | "BUS TIE" | "MCCB" | "MOTOR" | "VSD SS" | "PFC";
+}
+
+const feedersCollection: Array<IFeeder> = [
+  {
+    id: 1,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 100,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "INCOMER",
+  },
+  {
+    id: 2,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 200,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "ACB",
+  },
+  {
+    id: 3,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 100,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "ACB",
+  },
+  {
+    id: 4,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 100,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "BUS TIE",
+  },
+  {
+    id: 5,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 63,
+      'feederName': "QF",
+      poles: 3
+    },
+    feederType: "PFC",
+  },
+  {
+    id: 6,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 100,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "INCOMER",
+  },
+  {
+    id: 7,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 200,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "ACB",
+  },
+  {
+    id: 8,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 100,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "ACB",
+  },
+  {
+    id: 9,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 100,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "BUS TIE",
+  },
+  {
+    id: 10,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 63,
+      'feederName': "QF",
+      poles: 3
+    },
+    feederType: "PFC",
+  },
+  {
+    id: 11,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 100,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "INCOMER",
+  },
+  {
+    id: 12,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 200,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "ACB",
+  },
+  {
+    id: 13,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 100,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "ACB",
+  },
+  {
+    id: 14,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 100,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "BUS TIE",
+  },
+  {
+    id: 15,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 63,
+      'feederName': "QF",
+      poles: 3
+    },
+    feederType: "PFC",
+  },
+  {
+    id: 16,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 100,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "INCOMER",
+  },
+  {
+    id: 17,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 200,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "ACB",
+  },
+  {
+    id: 18,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 100,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "ACB",
+  },
+  {
+    id: 19,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 100,
+      'feederName': "QF",
+      poles: 3
+
+    },
+    feederType: "BUS TIE",
+  },
+  {
+    id: 20,
+    feederImage: "feederImage",
+    feederParams: {
+      'maxCurrent': 63,
+      'feederName': "QF",
+      poles: 3
+    },
+    feederType: "PFC",
+  },
+
+]
+
+const [selectedFeeders, setSelectedFeeders] = useState<IFeeder[] | null> (null)
+
+
 function App() {
   const [count,
     setCount] = useState(0)
@@ -63,11 +293,12 @@ function App() {
 
         </div>
 
-        
-        
         <Nav variant="tabs" defaultActiveKey="/home">
           <Nav.Item>
-            <Nav.Link href="/home">INCOMER</Nav.Link>
+            <Nav.Link href="/home">ВСЕ</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="link-0">INCOMER</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link eventKey="link-1">BUS TIE</Nav.Link>
@@ -76,7 +307,7 @@ function App() {
             <Nav.Link eventKey="link-2">ФИДЕР/ACB</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-2">ФИДЕР/MCCB</Nav.Link>
+            <Nav.Link eventKey="link-3">ФИДЕР/MCCB</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link eventKey="link-4">ФИДЕР/MOTOR</Nav.Link>
@@ -90,23 +321,25 @@ function App() {
         </Nav>
         {/* Stack the columns on mobile by making one full-width and the other half-width */}
         <div>
-          <span>
-              <Button variant="light" className="add-btn" size="sm">
-                <i className="fas fa-plus"></i>
-                <p>ИЗ ШАБЛОНА</p>
+          <div className="chosenFeeders"></div>
 
-              </Button>{' '}
-              <Button variant="light" className="add-btn" size="sm">
-                <i className="fas fa-plus"></i>
-              <p>НОВЫЙ</p>
-              </Button>
-          </span>
-          <span>
-            Another text
-          </span>
+          <div className="horizontalWrapper">
+
+            {
+              feedersCollection.map(feeder => {
+                return <div className="box">{feeder.feederImage}</div>
+              })
+            }
+          </div>
+
         </div>
-          
-            
+
+
+      </Container>
+      <Container fluid className="feedersDropZone {
+">
+
+
       </Container>
 
     </div>
