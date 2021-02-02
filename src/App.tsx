@@ -244,17 +244,26 @@ const feedersCollection: Array<IFeeder> = [
 
 ]
 
-const [selectedFeeders, setSelectedFeeders] = useState<IFeeder[] | null> (null)
 
 
 function App() {
   const [count,
     setCount] = useState(0)
+    
+    const now = 20;
+    
+    const progressInstance = <ProgressBar variant="secondary" now={now} label={`${now}%`} />;
+    
+    const [selectedFeeders, setSelectedFeeders] = useState<IFeeder[] | null> (null)
 
-  const now = 20;
+    const [currentFeeder, setCurrentFeeder] = useState<IFeeder | null >(null)
 
-  const progressInstance = <ProgressBar variant="secondary" now={now} label={`${now}%`} />;
+    const dragStartHandler = (e: React.DragEvent<HTMLDivElement>, feeder: IFeeder) => {
+      console.log(JSON.stringify(feeder));
+    }
 
+    const dropHandler = (e, )
+    
   return (
     <div>
       <Navbar bg="dark" variant="dark">
@@ -295,7 +304,7 @@ function App() {
 
         <Nav variant="tabs" defaultActiveKey="/home">
           <Nav.Item>
-            <Nav.Link href="/home">ВСЕ</Nav.Link>
+            <Nav.Link href="#">ВСЕ</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link eventKey="link-0">INCOMER</Nav.Link>
@@ -321,13 +330,21 @@ function App() {
         </Nav>
         {/* Stack the columns on mobile by making one full-width and the other half-width */}
         <div>
-          <div className="chosenFeeders"></div>
+          <div className="chosenFeeders"
+            onDrop={ e => dropHandler(e)}
+          ></div>
 
           <div className="horizontalWrapper">
 
             {
               feedersCollection.map(feeder => {
-                return <div className="box">{feeder.feederImage}</div>
+                return <div className="box" 
+                    key={feeder.id}
+                    draggable={true}
+                    onDragStart={ e => dragStartHandler(e, feeder)}
+                    
+
+                  >{feeder.feederImage}</div>
               })
             }
           </div>
@@ -336,8 +353,7 @@ function App() {
 
 
       </Container>
-      <Container fluid className="feedersDropZone {
-">
+      <Container fluid className="feedersDropZone">
 
 
       </Container>
